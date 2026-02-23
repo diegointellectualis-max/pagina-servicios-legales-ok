@@ -20,7 +20,7 @@ const AmeliaChatAssistant: React.FC = () => {
     if (!process.env.API_KEY) return;
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     chatInstanceRef.current = ai.chats.create({
-      model: 'gemini-3-flash-preview',
+      model: 'gemini-2.5-flash',
       config: {
         systemInstruction: `Eres Amelia, asistente virtual de texto de Ingenio Servicios Legales.
         Tu tono es profesional, empático, claro y cercano.
