@@ -119,7 +119,7 @@ const App: React.FC = () => {
         >
           <div className="absolute inset-0 z-0">
             <img
-              src={heroImg}
+              src="https://picsum.photos/id/122/1920/1080"
               className="w-full h-full object-cover"
               alt="Medellín Skyline"
             />
@@ -312,7 +312,7 @@ const App: React.FC = () => {
                 src={legalVideo}
                 controls
                 className="w-full h-full object-cover"
-                poster={heroImg}
+                poster="https://picsum.photos/id/122/1200/675"
               >
                 Tu navegador no soporta el elemento de video.
               </video>
