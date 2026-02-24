@@ -1,12 +1,14 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Icons } from './constants';
 import AmeliaVoiceAssistant from './components/AmeliaVoiceAssistant';
 import AmeliaChatAssistant from './components/AmeliaChatAssistant';
 import legalVideo from './20260223_1124_01kj5mwqpteh0ak7m1qrxf3fbk.mp4';
+import heroVideo from './20260223_1126_01kj5n0xypefxby0xrds5c36gf.mp4';
 
 const App: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,12 +92,30 @@ const App: React.FC = () => {
 
       <main>
         {/* 3. HERO */}
-        <section id="inicio" className="relative h-[85vh] flex items-center overflow-hidden">
+        <section
+          id="inicio"
+          className="relative h-[85vh] flex items-center overflow-hidden group/hero"
+          onMouseEnter={() => videoRef.current?.play()}
+          onMouseLeave={() => {
+            if (videoRef.current) {
+              videoRef.current.pause();
+              videoRef.current.currentTime = 0;
+            }
+          }}
+        >
           <div className="absolute inset-0 z-0">
             <img
               src="https://picsum.photos/id/122/1920/1080"
               className="w-full h-full object-cover"
               alt="Medellín Skyline"
+            />
+            <video
+              ref={videoRef}
+              src={heroVideo}
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/hero:opacity-100 transition-opacity duration-700"
             />
             <div className="absolute inset-0 bg-corpBlue/75"></div>
           </div>
