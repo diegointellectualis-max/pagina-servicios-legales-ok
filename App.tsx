@@ -299,62 +299,61 @@ const App: React.FC = () => {
               ))}
             </div>
           </div>
-        </section>
 
-        <section className="py-24 bg-white">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl font-title font-bold mb-6">Conoce más sobre nuestro compromiso</h2>
-            <p className="text-textSec text-lg mb-12 max-w-2xl mx-auto">
-              En Ingenio Servicios Legales, no solo resolvemos problemas jurídicos; transformamos vidas recuperando la tranquilidad de nuestros clientes.
-            </p>
-            <div className="rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video">
-              <video
-                src={legalVideo}
-                controls
-                className="w-full h-full object-cover"
-                poster="https://picsum.photos/id/122/1200/675"
-              >
-                Tu navegador no soporta el elemento de video.
-              </video>
+          <section className="py-24 bg-white">
+            <div className="max-w-4xl mx-auto px-4 text-center">
+              <h2 className="text-3xl font-title font-bold mb-6">Conoce más sobre nuestro compromiso</h2>
+              <p className="text-textSec text-lg mb-12 max-w-2xl mx-auto">
+                En Ingenio Servicios Legales, no solo resolvemos problemas jurídicos; transformamos vidas recuperando la tranquilidad de nuestros clientes.
+              </p>
+              <div className="rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video">
+                <video
+                  src={legalVideo}
+                  controls
+                  className="w-full h-full object-cover"
+                  poster="https://picsum.photos/id/122/1200/675"
+                >
+                  Tu navegador no soporta el elemento de video.
+                </video>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section id="contacto" className="py-24">
-          <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-title font-bold mb-8">Contacto</h2>
-            <div className="grid lg:grid-cols-2 gap-12">
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden">
-                {formSubmitted && (
-                  <div className="absolute inset-0 bg-white/95 z-10 flex flex-col items-center justify-center text-center p-6 animate-in fade-in duration-500">
-                    <div className="w-16 h-16 bg-accentGreen/10 text-accentGreen rounded-full flex items-center justify-center mb-4">
-                      <Icons.Pin />
+          <section id="contacto" className="py-24">
+            <div className="max-w-7xl mx-auto px-4">
+              <h2 className="text-3xl font-title font-bold mb-8">Contacto</h2>
+              <div className="grid lg:grid-cols-2 gap-12">
+                <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden">
+                  {formSubmitted && (
+                    <div className="absolute inset-0 bg-white/95 z-10 flex flex-col items-center justify-center text-center p-6 animate-in fade-in duration-500">
+                      <div className="w-16 h-16 bg-accentGreen/10 text-accentGreen rounded-full flex items-center justify-center mb-4">
+                        <Icons.Pin />
+                      </div>
+                      <h3 className="text-xl font-title font-bold text-corpBlue mb-2">¡Mensaje enviado!</h3>
+                      <p className="text-textSec text-sm">Pronto nos pondremos en contacto contigo.</p>
+                      <button
+                        onClick={() => setFormSubmitted(false)}
+                        className="mt-6 text-corpBlue font-bold text-sm hover:underline"
+                      >
+                        Enviar otro mensaje
+                      </button>
                     </div>
-                    <h3 className="text-xl font-title font-bold text-corpBlue mb-2">¡Mensaje enviado!</h3>
-                    <p className="text-textSec text-sm">Pronto nos pondremos en contacto contigo.</p>
-                    <button
-                      onClick={() => setFormSubmitted(false)}
-                      className="mt-6 text-corpBlue font-bold text-sm hover:underline"
-                    >
-                      Enviar otro mensaje
-                    </button>
-                  </div>
-                )}
-                <form className="space-y-4" onSubmit={handleFormSubmit}>
-                  <input type="text" required placeholder="Nombre o Empresa" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
-                  <input type="email" required placeholder="Correo electrónico" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
-                  <textarea required placeholder="Mensaje" rows={4} className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue"></textarea>
-                  <button className="w-full bg-accentGreen hover:bg-emerald-600 transition-colors text-white font-bold py-3 rounded-lg">ENVIAR</button>
-                </form>
-              </div>
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4"><Icons.Phone /> <span>321 783 0681</span></div>
-                <div className="flex items-center space-x-4"><Icons.Mail /> <span>servicioalcliente@ingenioservicios.com.co</span></div>
-                <div className="flex items-center space-x-4"><Icons.Pin /> <span>Calle 6 sur # 79 150 int 1413, Medellín</span></div>
+                  )}
+                  <form className="space-y-4" onSubmit={handleFormSubmit}>
+                    <input type="text" required placeholder="Nombre o Empresa" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
+                    <input type="email" required placeholder="Correo electrónico" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
+                    <textarea required placeholder="Mensaje" rows={4} className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue"></textarea>
+                    <button className="w-full bg-accentGreen hover:bg-emerald-600 transition-colors text-white font-bold py-3 rounded-lg">ENVIAR</button>
+                  </form>
+                </div>
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4"><Icons.Phone /> <span>321 783 0681</span></div>
+                  <div className="flex items-center space-x-4"><Icons.Mail /> <span>servicioalcliente@ingenioservicios.com.co</span></div>
+                  <div className="flex items-center space-x-4"><Icons.Pin /> <span>Calle 6 sur # 79 150 int 1413, Medellín</span></div>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
       </main>
 
       <footer className="bg-corpBlue text-white/60 py-12 px-4 border-t border-white/10">
