@@ -6,9 +6,23 @@ import AmeliaChatAssistant from './components/AmeliaChatAssistant';
 import legalVideo from './20260223_1124_01kj5mwqpteh0ak7m1qrxf3fbk.mp4';
 import heroVideo from './20260223_1126_01kj5n0xypefxby0xrds5c36gf.mp4';
 
+// Project Assets
+import heroImg from './35f7fff7-e503-417a-affb-993c14b23821.jpg';
+import insolvenciaImg from './0c7155b0-9cd3-40f6-969b-37d753080ed2.jpg';
+import urbanismoImg from './8e612205-97c2-4f14-a081-6646a811262d.jpg';
+import notarialImg from './a982f8f9-4def-4036-ab7c-840dabd9471d.jpg';
+import nosotrosImg from './b181911e-2b95-475a-92bc-1ce54c4790c9.jpg';
+
 const App: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setTimeout(() => setFormSubmitted(false), 5000); // Reset after 5s
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -105,7 +119,7 @@ const App: React.FC = () => {
         >
           <div className="absolute inset-0 z-0">
             <img
-              src="https://picsum.photos/id/122/1920/1080"
+              src={heroImg}
               className="w-full h-full object-cover"
               alt="Medellín Skyline"
             />
@@ -205,14 +219,14 @@ const App: React.FC = () => {
               </button>
             </div>
             <div className="order-1 lg:order-2 rounded-2xl overflow-hidden shadow-2xl">
-              <img src="https://picsum.photos/id/119/800/600" alt="Insolvencia" className="w-full h-full object-cover" />
+              <img src={insolvenciaImg} alt="Insolvencia" className="w-full h-full object-cover" />
             </div>
           </div>
 
           <div id="urbanismo" className="bg-bgGray py-24">
             <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img src="https://picsum.photos/id/201/800/600" alt="Urbanismo" className="w-full h-full object-cover" />
+                <img src={urbanismoImg} alt="Urbanismo" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h4 className="text-accentGold font-bold uppercase tracking-widest text-sm mb-4">Soporte Técnico-Jurídico</h4>
@@ -241,7 +255,7 @@ const App: React.FC = () => {
               </button>
             </div>
             <div className="order-1 lg:order-2 rounded-2xl overflow-hidden shadow-2xl">
-              <img src="https://picsum.photos/id/175/800/600" alt="Trámites Notariales" className="w-full h-full object-cover" />
+              <img src={notarialImg} alt="Trámites Notariales" className="w-full h-full object-cover" />
             </div>
           </div>
         </section>
@@ -261,7 +275,7 @@ const App: React.FC = () => {
               </button>
             </div>
             <div className="bg-bgGray rounded-2xl p-4 shadow-inner">
-              <img src="https://picsum.photos/id/101/600/600" alt="Equipo Ingenio" className="rounded-xl shadow-lg w-full h-full object-cover" />
+              <img src={nosotrosImg} alt="Equipo Ingenio" className="rounded-xl shadow-lg w-full h-full object-cover" />
             </div>
           </div>
         </section>
@@ -298,7 +312,7 @@ const App: React.FC = () => {
                 src={legalVideo}
                 controls
                 className="w-full h-full object-cover"
-                poster="https://picsum.photos/id/122/1200/675"
+                poster={heroImg}
               >
                 Tu navegador no soporta el elemento de video.
               </video>
@@ -310,12 +324,27 @@ const App: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-title font-bold mb-8">Contacto</h2>
             <div className="grid lg:grid-cols-2 gap-12">
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                <form className="space-y-4">
-                  <input type="text" placeholder="Nombre o Empresa" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
-                  <input type="email" placeholder="Correo electrónico" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
-                  <textarea placeholder="Mensaje" rows={4} className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue"></textarea>
-                  <button className="w-full bg-accentGreen text-white font-bold py-3 rounded-lg">ENVIAR</button>
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 relative overflow-hidden">
+                {formSubmitted && (
+                  <div className="absolute inset-0 bg-white/95 z-10 flex flex-col items-center justify-center text-center p-6 animate-in fade-in duration-500">
+                    <div className="w-16 h-16 bg-accentGreen/10 text-accentGreen rounded-full flex items-center justify-center mb-4">
+                      <Icons.Pin />
+                    </div>
+                    <h3 className="text-xl font-title font-bold text-corpBlue mb-2">¡Mensaje enviado!</h3>
+                    <p className="text-textSec text-sm">Pronto nos pondremos en contacto contigo.</p>
+                    <button
+                      onClick={() => setFormSubmitted(false)}
+                      className="mt-6 text-corpBlue font-bold text-sm hover:underline"
+                    >
+                      Enviar otro mensaje
+                    </button>
+                  </div>
+                )}
+                <form className="space-y-4" onSubmit={handleFormSubmit}>
+                  <input type="text" required placeholder="Nombre o Empresa" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
+                  <input type="email" required placeholder="Correo electrónico" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
+                  <textarea required placeholder="Mensaje" rows={4} className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue"></textarea>
+                  <button className="w-full bg-accentGreen hover:bg-emerald-600 transition-colors text-white font-bold py-3 rounded-lg">ENVIAR</button>
                 </form>
               </div>
               <div className="space-y-6">
