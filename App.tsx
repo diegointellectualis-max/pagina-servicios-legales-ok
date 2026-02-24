@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Icons } from './constants';
 import AmeliaVoiceAssistant from './components/AmeliaVoiceAssistant';
 import AmeliaChatAssistant from './components/AmeliaChatAssistant';
+import legalVideo from './20260223_1124_01kj5mwqpteh0ak7m1qrxf3fbk.mp4';
 
 const App: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,7 +60,7 @@ const App: React.FC = () => {
             <h1 className="text-xl md:text-2xl font-title font-bold text-corpBlue leading-none">Ingenio Servicios Legales</h1>
             <span className="text-[10px] text-textSec font-medium mt-1 uppercase tracking-wider">Ingenio Servicios y Suministros S.A.S.</span>
           </div>
-          
+
           <nav className="hidden lg:flex items-center space-x-8 text-sm font-medium">
             {['Inicio', 'Nosotros', 'Servicios', 'Experiencia', 'Noticias', 'Contacto'].map((item) => (
               <button
@@ -71,7 +72,7 @@ const App: React.FC = () => {
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accentGreen transition-all group-hover:w-full"></span>
               </button>
             ))}
-            <button 
+            <button
               onClick={() => scrollTo('contacto')}
               className="bg-accentGreen hover:bg-emerald-600 text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-sm"
             >
@@ -91,14 +92,14 @@ const App: React.FC = () => {
         {/* 3. HERO */}
         <section id="inicio" className="relative h-[85vh] flex items-center overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img 
-              src="https://picsum.photos/id/122/1920/1080" 
-              className="w-full h-full object-cover" 
-              alt="Medellín Skyline" 
+            <img
+              src="https://picsum.photos/id/122/1920/1080"
+              className="w-full h-full object-cover"
+              alt="Medellín Skyline"
             />
             <div className="absolute inset-0 bg-corpBlue/75"></div>
           </div>
-          
+
           <div className="relative z-10 max-w-7xl mx-auto px-4 text-white">
             <div className="max-w-2xl">
               <h2 className="text-4xl md:text-6xl font-title font-bold leading-tight mb-6">
@@ -115,13 +116,13 @@ const App: React.FC = () => {
                 Sabemos que el sobreendeudamiento y la presión de los acreedores no solo afectan tus finanzas: también impactan tu familia, tu tranquilidad y tus decisiones diarias. Aquí encuentras acompañamiento profesional y humano, sin juicios y con claridad.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-4">
-                <button 
+                <button
                   onClick={() => scrollTo('contacto')}
                   className="bg-accentGreen hover:bg-emerald-600 text-white px-8 py-4 rounded-lg font-bold transition-all transform hover:-translate-y-1 shadow-lg"
                 >
                   Hablar con un asesor
                 </button>
-                <button 
+                <button
                   onClick={() => scrollTo('servicios')}
                   className="bg-transparent border-2 border-white hover:bg-white hover:text-corpBlue text-white px-8 py-4 rounded-lg font-bold transition-all transform hover:-translate-y-1"
                 >
@@ -187,7 +188,7 @@ const App: React.FC = () => {
               <img src="https://picsum.photos/id/119/800/600" alt="Insolvencia" className="w-full h-full object-cover" />
             </div>
           </div>
-          
+
           <div id="urbanismo" className="bg-bgGray py-24">
             <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
@@ -240,49 +241,68 @@ const App: React.FC = () => {
               </button>
             </div>
             <div className="bg-bgGray rounded-2xl p-4 shadow-inner">
-               <img src="https://picsum.photos/id/101/600/600" alt="Equipo Ingenio" className="rounded-xl shadow-lg w-full h-full object-cover" />
+              <img src="https://picsum.photos/id/101/600/600" alt="Equipo Ingenio" className="rounded-xl shadow-lg w-full h-full object-cover" />
             </div>
           </div>
         </section>
 
         {/* Other sections as before (Experience, Noticias, Contacto)... */}
         <section id="noticias" className="py-24 bg-bgGray">
-           <div className="max-w-7xl mx-auto px-4">
-              <h2 className="text-3xl font-title font-bold text-center mb-12">Noticias y guías legales</h2>
-              <div className="grid md:grid-cols-3 gap-8">
-                 {/* Simplified news cards for layout */}
-                 {[
-                   { t: 'Insolvencia: Señales de alerta', e: 'Guía' },
-                   { t: 'Licencias urbanísticas: Errores comunes', e: 'Urbanismo' },
-                   { t: 'Trámites notariales sin complicaciones', e: 'Notaría' }
-                 ].map((n, i) => (
-                   <div key={i} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
-                      <span className="text-xs font-bold text-accentGreen uppercase">{n.e}</span>
-                      <h4 className="text-lg font-bold mt-2 mb-4">{n.t}</h4>
-                      <button className="text-corpBlue font-bold text-sm">Leer más <Icons.ChevronRight /></button>
-                   </div>
-                 ))}
-              </div>
-           </div>
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl font-title font-bold text-center mb-12">Noticias y guías legales</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Simplified news cards for layout */}
+              {[
+                { t: 'Insolvencia: Señales de alerta', e: 'Guía' },
+                { t: 'Licencias urbanísticas: Errores comunes', e: 'Urbanismo' },
+                { t: 'Trámites notariales sin complicaciones', e: 'Notaría' }
+              ].map((n, i) => (
+                <div key={i} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
+                  <span className="text-xs font-bold text-accentGreen uppercase">{n.e}</span>
+                  <h4 className="text-lg font-bold mt-2 mb-4">{n.t}</h4>
+                  <button className="text-corpBlue font-bold text-sm">Leer más <Icons.ChevronRight /></button>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-24 bg-white">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <h2 className="text-3xl font-title font-bold mb-6">Conoce más sobre nuestro compromiso</h2>
+            <p className="text-textSec text-lg mb-12 max-w-2xl mx-auto">
+              En Ingenio Servicios Legales, no solo resolvemos problemas jurídicos; transformamos vidas recuperando la tranquilidad de nuestros clientes.
+            </p>
+            <div className="rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video">
+              <video
+                src={legalVideo}
+                controls
+                className="w-full h-full object-cover"
+                poster="https://picsum.photos/id/122/1200/675"
+              >
+                Tu navegador no soporta el elemento de video.
+              </video>
+            </div>
+          </div>
         </section>
 
         <section id="contacto" className="py-24">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-3xl font-title font-bold mb-8">Contacto</h2>
             <div className="grid lg:grid-cols-2 gap-12">
-               <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                  <form className="space-y-4">
-                    <input type="text" placeholder="Nombre o Empresa" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
-                    <input type="email" placeholder="Correo electrónico" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
-                    <textarea placeholder="Mensaje" rows={4} className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue"></textarea>
-                    <button className="w-full bg-accentGreen text-white font-bold py-3 rounded-lg">ENVIAR</button>
-                  </form>
-               </div>
-               <div className="space-y-6">
-                  <div className="flex items-center space-x-4"><Icons.Phone /> <span>321 783 0681</span></div>
-                  <div className="flex items-center space-x-4"><Icons.Mail /> <span>servicioalcliente@ingenioservicios.com.co</span></div>
-                  <div className="flex items-center space-x-4"><Icons.Pin /> <span>Calle 6 sur # 79 150 int 1413, Medellín</span></div>
-               </div>
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <form className="space-y-4">
+                  <input type="text" placeholder="Nombre o Empresa" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
+                  <input type="email" placeholder="Correo electrónico" className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue" />
+                  <textarea placeholder="Mensaje" rows={4} className="w-full px-4 py-3 rounded-lg bg-bgGray outline-none focus:ring-1 focus:ring-corpBlue"></textarea>
+                  <button className="w-full bg-accentGreen text-white font-bold py-3 rounded-lg">ENVIAR</button>
+                </form>
+              </div>
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4"><Icons.Phone /> <span>321 783 0681</span></div>
+                <div className="flex items-center space-x-4"><Icons.Mail /> <span>servicioalcliente@ingenioservicios.com.co</span></div>
+                <div className="flex items-center space-x-4"><Icons.Pin /> <span>Calle 6 sur # 79 150 int 1413, Medellín</span></div>
+              </div>
             </div>
           </div>
         </section>
